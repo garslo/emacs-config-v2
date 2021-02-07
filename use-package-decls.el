@@ -8,7 +8,7 @@
 
 (use-package helm-swoop
   :ensure t
-  :bind (("C-c C-s" . helm-swoop)
+  :bind (("C-c a" . helm-swoop)
 	 ("C-c ma" . helm-multi-swoop-all)))
 
 (use-package helm-projectile
