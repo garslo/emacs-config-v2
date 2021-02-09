@@ -41,7 +41,7 @@
   :config
   (setq company-dabbrev-downcase 0)
   (setq company-idle-delay 0.1)
-  (setq company-minimum-prefix-length 0)
+  (setq company-minimum-prefix-length 1)
   :init
   (add-hook 'after-init-hook #'global-company-mode))
 
@@ -52,7 +52,9 @@
   :ensure t)
 
 (use-package rustic
-  :ensure t)
+  :ensure t
+  :config
+  (setq rustic-format-on-save nil))
 
 (use-package go-mode
   :ensure t
@@ -60,3 +62,6 @@
   (setq gofmt-command "goimports")
   :init
   (add-hook 'before-save-hook #'gofmt-before-save))
+
+(use-package yaml-mode
+  :ensure t)
