@@ -32,6 +32,8 @@
   :ensure t
   :config
   (setq lsp-enable-snippet nil)
+  (setq gc-cons-threshold (* 2 800000))  ; double the default for
+					 ; better performance
   :init
   (add-hook 'python-mode-hook #'lsp)
   (add-hook 'go-mode-hook #'lsp))
