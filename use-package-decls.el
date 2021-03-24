@@ -73,3 +73,6 @@
 
 (use-package terraform-mode
   :ensure t)
+
+(use-package salt-mode
+  :ensure t)
