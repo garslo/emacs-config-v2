@@ -1,9 +1,9 @@
 (when (display-graphic-p)
-  (load-theme 'tango-dark)
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
   (set-face-attribute 'default nil :height 120) ; :height 100 => 10pt
   )
+(load-theme 'tango-dark) ; if not working in terminal, ensure TERM=xterm-256color is set
 (setq inhibit-splash-screen t)
 (setq echo-keystrokes 0.1)
 (setq column-number-mode t)
