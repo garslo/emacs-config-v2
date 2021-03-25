@@ -4,3 +4,6 @@
                 'smarter-move-beginning-of-line)
 
 (global-set-key (kbd "C-c o") 'switch-to-previous-buffer-in-other-window)
+
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c C-l") 'org-insert-link)
