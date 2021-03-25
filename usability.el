@@ -3,6 +3,7 @@
   (scroll-bar-mode -1)
   (set-face-attribute 'default nil :height 120) ; :height 100 => 10pt
   )
+(menu-bar-mode -1)
 (load-theme 'tango-dark) ; if not working in terminal, ensure TERM=xterm-256color is set
 (setq inhibit-splash-screen t)
 (setq echo-keystrokes 0.1)
