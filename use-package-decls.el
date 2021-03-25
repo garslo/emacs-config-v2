@@ -45,7 +45,8 @@
   (setq company-idle-delay 0.1)
   (setq company-minimum-prefix-length 1)
   :init
-  (add-hook 'after-init-hook #'global-company-mode))
+  (add-hook 'after-init-hook #'global-company-mode)
+  (add-hook 'shell-mode-hook (lambda () (company-mode -1))))
 
 (use-package elpy
   :ensure t)
