@@ -33,3 +33,6 @@ open and indent an empty line between the cursor and the text. Move the
 cursor to the new line."
   (interactive "P")
   (electric-newline-and-maybe-indent))
+
+(fset 'switch-to-previous-buffer-in-other-window
+	  (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ("obo" 0 "%d")) arg)))
