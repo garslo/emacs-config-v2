@@ -89,3 +89,6 @@
 
 (use-package protobuf-mode
   :ensure t)
+
+(use-package linum
+  :init (add-hook 'prog-mode-hook 'linum-mode))
