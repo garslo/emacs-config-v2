@@ -49,6 +49,15 @@
   (add-hook 'shell-mode-hook (lambda () (company-mode -1))))
 
 (use-package elpy
+  :config
+  (elpy-enable)
+  :ensure t)
+
+(use-package pyenv-mode
+  :ensure t
+  :init (pyenv-mode))
+
+(use-package virtualenvwrapper
   :ensure t)
 
 (use-package flycheck
