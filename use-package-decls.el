@@ -91,4 +91,6 @@
   :ensure t)
 
 (use-package linum
-  :init (add-hook 'prog-mode-hook 'linum-mode))
+  :init
+  (add-hook 'prog-mode-hook 'linum-mode)
+  (setq linum-format "%d "))
