@@ -93,4 +93,4 @@
 (use-package linum
   :init
   (add-hook 'prog-mode-hook 'linum-mode)
-  (setq linum-format "%d "))
+  (setq linum-format "%4d \u2502"))
