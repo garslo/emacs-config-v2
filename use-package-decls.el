@@ -94,3 +94,6 @@
   :init
   (add-hook 'prog-mode-hook 'linum-mode)
   (setq linum-format "%4d \u2502"))
+
+(use-package subword
+  :init (global-subword-mode t))
