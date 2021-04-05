@@ -97,3 +97,6 @@
 
 (use-package subword
   :init (global-subword-mode t))
+
+(use-package org
+  :init (require 'org-tempo))
