@@ -98,5 +98,9 @@
 (use-package subword
   :init (global-subword-mode t))
 
+
 (use-package avy
   :ensure t)
+
+(use-package org
+  :init (require 'org-tempo))
