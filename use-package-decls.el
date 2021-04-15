@@ -104,3 +104,6 @@
 
 (use-package org
   :init (require 'org-tempo))
+
+(use-package request
+  :ensure t)
