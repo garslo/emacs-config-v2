@@ -66,7 +66,9 @@
 (use-package rustic
   :ensure t
   :config
-  (setq rustic-format-on-save nil))
+  (setq rustic-format-on-save nil)
+  :init
+  (add-hook 'rustic-mode-hook (lambda () (add-hook 'before-save-hook #'lsp-format-buffer nil 'local))))
 
 (use-package go-mode
   :ensure t
@@ -102,8 +104,7 @@
 (use-package avy
   :ensure t)
 
-(use-package org
-  :init (require 'org-tempo))
+(use-package org)
 
 (use-package request
   :ensure t)
