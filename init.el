@@ -4,6 +4,8 @@
 (load "~/.emacs.d/use-package-decls.el")
 (load "~/.emacs.d/usability.el")
 (load "~/.emacs.d/keybindings.el")
+(if (file-exists-p "~/.emacs.d/local.el")
+    (load "~/.emacs.d/local.el"))
 (put 'dired-find-alternate-file 'disabled nil)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
