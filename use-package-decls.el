@@ -102,7 +102,7 @@
   :config
   (setq display-line-numbers-type 'relative)
   :init
-  (add-hook 'prog-mode-hook 'display-line-nu )
+  (add-hook 'prog-mode-hook 'display-line-numbers-mode)
   (add-hook 'org-mode-hook 'display-line-numbers-mode))
 
 (use-package subword
