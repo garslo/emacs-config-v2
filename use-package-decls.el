@@ -92,10 +92,17 @@
 (use-package protobuf-mode
   :ensure t)
 
-(use-package linum
+;; (use-package linum
+;;   :init
+;;   (add-hook 'prog-mode-hook 'linum-mode)
+;;   (setq linum-format "%4d \u2502"))
+
+(use-package display-line-numbers
+  :ensure t
+  :config
+  (setq display-line-numbers-type 'relative)
   :init
-  (add-hook 'prog-mode-hook 'linum-mode)
-  (setq linum-format "%4d \u2502"))
+  (add-hook 'prog-mode-hook 'display-line-numbers-mode))
 
 (use-package subword
   :init (global-subword-mode t))
