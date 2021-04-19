@@ -122,6 +122,6 @@
 (use-package avy
   :ensure t
   :config
-  (setq avy-timeout-seconds 0.5)
+  (setq avy-timeout-seconds 0.3)
   :bind
   ("C-c ;" . avy-goto-char-timer))
