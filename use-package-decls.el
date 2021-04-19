@@ -97,19 +97,23 @@
 ;;   (add-hook 'prog-mode-hook 'linum-mode)
 ;;   (setq linum-format "%4d \u2502"))
 
-(use-package display-line-numbers
+(use-package display-line-number
   :ensure t
   :config
   (setq display-line-numbers-type 'relative)
   :init
-  (add-hook 'prog-mode-hook 'display-line-numbers-mode))
+  (add-hook 'prog-mode-hook 'display-line-nu )
+  (add-hook 'org-mode-hook 'display-line-numbers-mode))
 
 (use-package subword
   :init (global-subword-mode t))
 
-
 (use-package avy
-  :ensure t)
+  :ensure t
+  :config
+  (setq avy-timeout-seconds 0.5)
+  :bind
+  ("C-;" . avy-goto-char-timer))
 
 (use-package org)
 
