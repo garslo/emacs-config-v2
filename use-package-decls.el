@@ -97,7 +97,7 @@
   :config
   (setq display-line-numbers-type 'relative)
   :init
-  (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+  (global-display-line-numbers-mode 1)
   (add-hook 'org-mode-hook 'display-line-numbers-mode))
 
 (use-package subword
