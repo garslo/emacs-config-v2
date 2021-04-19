@@ -92,11 +92,6 @@
 (use-package protobuf-mode
   :ensure t)
 
-;; (use-package linum
-;;   :init
-;;   (add-hook 'prog-mode-hook 'linum-mode)
-;;   (setq linum-format "%4d \u2502"))
-
 (use-package display-line-numbers
   :ensure t
   :config
@@ -107,13 +102,6 @@
 
 (use-package subword
   :init (global-subword-mode t))
-
-(use-package avy
-  :ensure t
-  :config
-  (setq avy-timeout-seconds 0.5)
-  :bind
-  ("C-;" . avy-goto-char-timer))
 
 (use-package org)
 
@@ -130,3 +118,10 @@
   :config
   (key-chord-mode 1)
   (key-chord-define evil-insert-state-map  "jk" 'evil-normal-state))
+
+(use-package avy
+  :ensure t
+  :config
+  (setq avy-timeout-seconds 0.5)
+  :bind
+  ("C-c ;" . avy-goto-char-timer))
