@@ -97,7 +97,7 @@
 ;;   (add-hook 'prog-mode-hook 'linum-mode)
 ;;   (setq linum-format "%4d \u2502"))
 
-(use-package display-line-number
+(use-package display-line-numbers
   :ensure t
   :config
   (setq display-line-numbers-type 'relative)
