@@ -125,3 +125,6 @@
   (setq avy-timeout-seconds 0.3)
   :bind
   ("C-c ;" . avy-goto-char-timer))
+
+(use-package jenkinsfile-mode
+  :ensure t)

@@ -52,3 +52,7 @@ cursor to the new line."
 				     (":" . "/"))
 				   github-remote-url))))
     (message (format "%s/blob/%s/%s#L%s" base git-branch git-local-filename (line-number-at-pos)))))
+
+(defun load-if-exists (elisp-file)
+  (if (file-exists-p elisp-file)
+    (load elisp-file)))
