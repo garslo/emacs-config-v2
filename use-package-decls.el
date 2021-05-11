@@ -129,3 +129,6 @@
 
 (use-package lua-mode
   :ensure t)
+
+(use-package jenkinsfile-mode
+  :ensure t)
