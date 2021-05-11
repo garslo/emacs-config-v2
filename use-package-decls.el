@@ -95,7 +95,7 @@
 (use-package display-line-numbers
   :ensure t
   :config
-  (setq display-line-numbers-type 'relative)
+  (setq display-line-numbers-type 't)
   :init
   (global-display-line-numbers-mode 1)
   (add-hook 'org-mode-hook 'display-line-numbers-mode))
@@ -108,20 +108,24 @@
 (use-package request
   :ensure t)
 
-(use-package evil
-  :ensure t
-  :config
-  (evil-mode 1))
+;; (use-package evil
+;;   :ensure t
+;;   :config
+;;   (evil-mode 1))
 
-(use-package key-chord
-  :ensure t
-  :config
-  (key-chord-mode 1)
-  (key-chord-define evil-insert-state-map  "jk" 'evil-normal-state))
+;; (use-package key-chord
+;;   :ensure t
+;;   :config
+;;   (key-chord-mode 1)
+;;   (key-chord-define evil-insert-state-map  "jk" 'evil-normal-state))
 
 (use-package avy
   :ensure t
   :config
   (setq avy-timeout-seconds 0.3)
   :bind
-  ("C-c ;" . avy-goto-char-timer))
+  ("C-c ;" . avy-goto-char-timer)
+  ("C-c C-;" . avy-goto-char-2))
+
+(use-package lua-mode
+  :ensure t)
