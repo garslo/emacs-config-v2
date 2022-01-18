@@ -132,3 +132,7 @@
 
 (use-package jenkinsfile-mode
   :ensure t)
+
+(use-package go-template-mode
+  :load-path "packages/go-template-mode"
+  :mode "\\.tmpl?\\'")

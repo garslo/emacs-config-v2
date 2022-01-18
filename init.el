@@ -14,7 +14,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (avy avy-process terraform-mode dockerfile-mode yaml-mode electric-indent-mode electric-mode use-package))))
+    (go-template-mode jinja2-mode avy avy-process terraform-mode dockerfile-mode yaml-mode electric-indent-mode electric-mode use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -22,3 +22,4 @@
  ;; If there is more than one, they won't work right.
  )
 (put 'narrow-to-region 'disabled nil)
+(put 'set-goal-column 'disabled nil)
