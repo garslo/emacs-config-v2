@@ -59,6 +59,7 @@ cursor to the new line."
   (if (file-exists-p elisp-file)
     (load elisp-file)))
 
+
 (defun remove-all-whitespace (beginning end)
   (interactive "r")
   (save-excursion
@@ -71,3 +72,7 @@ cursor to the new line."
 	(forward-char)))))
 
 (defmacro comment (&rest _) ())
+
+(defun add-to-emacs-path (path)
+  (setenv "PATH" (concat (getenv "PATH") ":" path))
+  (setq exec-path (append exec-path `(,path))))
