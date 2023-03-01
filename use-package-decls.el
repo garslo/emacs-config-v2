@@ -24,9 +24,20 @@
 
 (use-package paredit
   :ensure t
-  :init
-  (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
-  (add-hook 'lisp-mode-hook #'paredit-mode))
+  :config
+  (dolist (m '(emacs-lisp-mode-hook
+	       lisp-mode-hook
+               racket-mode-hook
+               racket-repl-mode-hook
+	       clojure-mode-hook))
+    (add-hook m #'paredit-mode))
+  (bind-keys :map paredit-mode-map
+             ("{"   . paredit-open-curly)
+             ("}"   . paredit-close-curly))
+  (unless terminal-frame
+    (bind-keys :map paredit-mode-map
+               ("M-[" . paredit-wrap-square)
+               ("M-{" . paredit-wrap-curly))))
 
 (use-package lsp-mode
   :ensure t
@@ -95,7 +106,7 @@
 (use-package display-line-numbers
   :ensure t
   :config
-  (setq display-line-numbers-type 'relative)
+  (setq display-line-numbers-type 'absolute)
   :init
   (global-display-line-numbers-mode 1)
   (add-hook 'org-mode-hook 'display-line-numbers-mode))
@@ -128,3 +139,24 @@
 
 (use-package jenkinsfile-mode
   :ensure t)
+
+(use-package racket-mode
+  :ensure t
+  :mode "\\.rkt\\'")
+
+(use-package cider
+  :ensure t)
+
+(use-package clojure-mode
+  :ensure t)
+
+(use-package slime
+  :ensure t)
+
+(use-package bui
+  :ensure t)
+
+(use-package puni
+  :ensure t
+  :config
+  (puni-global-mode t))

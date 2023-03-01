@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t -*-
+
 (defun smarter-move-beginning-of-line (arg)
   "Move point back to indentation of beginning of line.
 
@@ -56,3 +58,16 @@ cursor to the new line."
 (defun load-if-exists (elisp-file)
   (if (file-exists-p elisp-file)
     (load elisp-file)))
+
+(defun remove-all-whitespace (beginning end)
+  (interactive "r")
+  (save-excursion
+    (goto-char beginning)
+    (while (< (point) end)
+      (if (looking-at "[ \t\n]+")
+	  (progn
+	    (delete-char 1)
+	    (setq end (- end 1)))
+	(forward-char)))))
+
+(defmacro comment (&rest _) ())
