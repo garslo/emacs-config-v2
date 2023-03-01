@@ -120,17 +120,6 @@
 (use-package request
   :ensure t)
 
-;; (use-package evil
-;;   :ensure t
-;;   :config
-;;   (evil-mode 1))
-
-;; (use-package key-chord
-;;   :ensure t
-;;   :config
-;;   (key-chord-mode 1)
-;;   (key-chord-define evil-insert-state-map  "jk" 'evil-normal-state))
-
 (use-package avy
   :ensure t
   :config
@@ -164,4 +153,5 @@
 (use-package puni
   :ensure t
   :config
+  (setq puni-confirm-when-delete-unbalanced-active-region nil)
   (puni-global-mode t))
