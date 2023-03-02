@@ -29,7 +29,8 @@
 	       lisp-mode-hook
                racket-mode-hook
                racket-repl-mode-hook
-	       clojure-mode-hook))
+	       clojure-mode-hook
+	       scheme-mode-hook))
     (add-hook m #'paredit-mode))
   (bind-keys :map paredit-mode-map
              ("{"   . paredit-open-curly)
