@@ -155,3 +155,7 @@
   :config
   (setq puni-confirm-when-delete-unbalanced-active-region nil)
   (puni-global-mode t))
+
+(use-package js
+  :ensure t
+  :init (setq js-indent-level 2))

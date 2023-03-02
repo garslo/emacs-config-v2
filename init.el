@@ -14,7 +14,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(puni puni-mode bui cider ac-slime auto-complete helm-slime slime slime-company slime-repl-ansi-color geiser geiser-racket racket-mode wsd-mode markdown-toc svelte-mode jenkinsfile-mode avy key-chord evil request protobuf-mode virtualenvwrapper pyenv-mode salt-mode terraform-mode dockerfile-mode yaml-mode electric-indent-mode electric-mode use-package)))
+   (quote
+    (puni bui slime cider geiser geiser-racket racket-mode js-mode string-inflection markdown-toc rustic lsp-mode go-template-mode jinja2-mode avy avy-process terraform-mode dockerfile-mode yaml-mode electric-indent-mode electric-mode use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
