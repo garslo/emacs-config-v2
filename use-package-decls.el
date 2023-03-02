@@ -29,8 +29,16 @@
 	       lisp-mode-hook
                racket-mode-hook
                racket-repl-mode-hook
-	       clojure-mode-hook))
+	       clojure-mode-hook
+	       scheme-mode-hook))
     (add-hook m #'paredit-mode))
+  (dolist (m '(emacs-lisp-mode-hook
+	       lisp-mode-hook
+               racket-mode-hook
+               racket-repl-mode-hook
+	       clojure-mode-hook
+	       scheme-mode-hook))
+    (remove-hook m #'puni-mode))
   (bind-keys :map paredit-mode-map
              ("{"   . paredit-open-curly)
              ("}"   . paredit-close-curly))
@@ -158,4 +166,5 @@
 
 (use-package js
   :ensure t
-  :init (setq js-indent-level 2))
+  :config
+  (setq js-indent-level 2))
