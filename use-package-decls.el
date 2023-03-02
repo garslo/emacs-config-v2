@@ -32,6 +32,13 @@
 	       clojure-mode-hook
 	       scheme-mode-hook))
     (add-hook m #'paredit-mode))
+  (dolist (m '(emacs-lisp-mode-hook
+	       lisp-mode-hook
+               racket-mode-hook
+               racket-repl-mode-hook
+	       clojure-mode-hook
+	       scheme-mode-hook))
+    (remove-hook m #'puni-mode))
   (bind-keys :map paredit-mode-map
              ("{"   . paredit-open-curly)
              ("}"   . paredit-close-curly))
@@ -156,3 +163,8 @@
   :config
   (setq puni-confirm-when-delete-unbalanced-active-region nil)
   (puni-global-mode t))
+
+(use-package js
+  :ensure t
+  :config
+  (setq js-indent-level 2))
