@@ -84,13 +84,14 @@ cursor to the new line."
 
 (defun dotted-to-hash ()
   (interactive)
-  (search-forward ".")
+  (let ((terminal-regexp (rx (in "." space "\n" "(" "["))))
+    (search-forward ".")
   (backward-char)
   (delete-char 1)
   (insert "[\"")
   (search-forward-regexp (rx (or (char ".") (char space) (char "\n"))))
   (backward-char)
-  (insert "\"]"))
+  (insert "\"]")))
 
 (defun dotted-to-hash-region (start end)
   (interactive "r")
