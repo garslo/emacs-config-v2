@@ -76,3 +76,27 @@ cursor to the new line."
 (defun add-to-emacs-path (path)
   (setenv "PATH" (concat (getenv "PATH") ":" path))
   (setq exec-path (append exec-path `(,path))))
+
+(defun align-non-space (BEG END)
+  "Align non-space columns in region BEG END."
+  (interactive "r")
+  (align-regexp BEG END "\\(\\s-*\\)\\S-+" 1 1 t))
+
+(defun dotted-to-hash ()
+  (interactive)
+  (search-forward ".")
+  (backward-char)
+  (delete-char 1)
+  (insert "[\"")
+  (search-forward-regexp (rx (or (char ".") (char space) (char "\n"))))
+  (backward-char)
+  (insert "\"]"))
+
+(defun dotted-to-hash-region (start end)
+  (interactive "r")
+  (save-excursion
+    (message (format "%s" (point)))
+    (goto-char start)
+    (message (format "%s" (point)))
+    (while (< (point) end)
+      (dotted-to-hash))))
