@@ -162,7 +162,10 @@
   :ensure t
   :config
   (setq puni-confirm-when-delete-unbalanced-active-region nil)
-  (puni-global-mode t))
+  (puni-global-mode t)
+  :bind (("M-(" . puni-wrap-round)
+	 ("M-[" . puni-wrap-square)
+	 ("M-{" . puni-wrap-curly)))
 
 (use-package js
   :ensure t
