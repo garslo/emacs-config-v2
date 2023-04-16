@@ -7,3 +7,7 @@
 
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c C-l") 'org-insert-link)
+
+(add-hook 'emacs-lisp-mode-hook (lambda ()
+				  (local-set-key (kbd "C-c C-c") #'eval-defun)
+				  (company-fuzzy-mode 1)))

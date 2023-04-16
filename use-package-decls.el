@@ -22,6 +22,15 @@
   :ensure t
   :bind (("C-c C-g" . magit-status)))
 
+(use-package puni
+  :ensure t
+  :config
+  (setq puni-confirm-when-delete-unbalanced-active-region nil)
+  (puni-global-mode t)
+  :bind (("M-(" . puni-wrap-round)
+	 ("M-[" . puni-wrap-square)
+	 ("M-{" . puni-wrap-curly)))
+
 (use-package paredit
   :ensure t
   :config
@@ -31,17 +40,13 @@
                racket-repl-mode-hook
 	       clojure-mode-hook
 	       scheme-mode-hook))
-    (add-hook m #'paredit-mode))
-  (dolist (m '(emacs-lisp-mode-hook
-	       lisp-mode-hook
-               racket-mode-hook
-               racket-repl-mode-hook
-	       clojure-mode-hook
-	       scheme-mode-hook))
-    (remove-hook m #'puni-mode))
+    (progn
+      ;(remove-hook m #'puni-mode)
+      (add-hook m #'paredit-mode)))
   (bind-keys :map paredit-mode-map
              ("{"   . paredit-open-curly)
-             ("}"   . paredit-close-curly))
+             ("}"   . paredit-close-curly)
+	     ("M-s" . paredit-splice-sexp))
   (unless terminal-frame
     (bind-keys :map paredit-mode-map
                ("M-[" . paredit-wrap-square)
@@ -115,7 +120,6 @@
   :ensure t
   :config
   (setq display-line-numbers-type 'absolute)
-  ;(setq display-line-numbers-type 't)
   :init
   (global-display-line-numbers-mode 1)
   (add-hook 'org-mode-hook 'display-line-numbers-mode))
@@ -123,7 +127,15 @@
 (use-package subword
   :init (global-subword-mode t))
 
-(use-package org)
+(use-package org
+  :ensure t
+  :config
+  (setq org-src-preserve-indentation t)
+  (setq org-confirm-babel-evaluate nil)
+  (org-babel-do-load-languages
+   'org-babel-load-languages '((emacs-lisp . t)
+			       (python . t)
+			       (shell . t))))
 
 (use-package request
   :ensure t)
@@ -153,21 +165,26 @@
   :ensure t)
 
 (use-package slime
-  :ensure t)
+  :ensure t
+  :config
+  (slime-setup '(slime-fancy slime-company)))
 
 (use-package bui
   :ensure t)
-
-(use-package puni
-  :ensure t
-  :config
-  (setq puni-confirm-when-delete-unbalanced-active-region nil)
-  (puni-global-mode t)
-  :bind (("M-(" . puni-wrap-round)
-	 ("M-[" . puni-wrap-square)
-	 ("M-{" . puni-wrap-curly)))
 
 (use-package js
   :ensure t
   :config
   (setq js-indent-level 2))
+
+;; (use-package flx
+;;   :ensure t)
+
+;; (use-package company-fuzzy
+;;   :ensure t
+;;   :hook (company-mode . company-fuzzy-mode)
+;;   :init
+;;   (setq company-fuzzy-sorting-backend 'flx
+;; 	company-fuzzy-prefix-on-top nil
+;; 	company-fuzzy-trigger-symbols '("." "->" "<" "\"" "'" "@")
+;;    ))

@@ -18,7 +18,7 @@
        (add-hook 'font-lock-extend-region-functions 'slime-extend-region-for-font-lock t t))
      common-lisp-lisp-mode-hook slime-lisp-mode-hook))
  '(package-selected-packages
-   '(puni bui helm-sly gh geiser geiser-chicken cider clojure-mode helm-cider helm-cider-history racket-mode org-modern svelte-mode typescript-mode org-roam helm-sage sage-shell-mode avy avy-process terraform-mode dockerfile-mode yaml-mode electric-indent-mode electric-mode use-package)))
+   '(helm-flx flx company-fuzzy plz helm-tree-sitter tree-sitter tree-sitter-langs helm-notmuch notmuch company-irony company-irony-c-headers flycheck-irony irony irony-eldoc company-c-headers geiser-racket flymake-racket geiser-guile hy-mode slime-company puni bui helm-sly gh geiser geiser-chicken cider clojure-mode helm-cider helm-cider-history racket-mode org-modern svelte-mode typescript-mode org-roam helm-sage sage-shell-mode avy avy-process terraform-mode dockerfile-mode yaml-mode electric-indent-mode electric-mode use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
