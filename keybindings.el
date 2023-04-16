@@ -9,5 +9,5 @@
 (global-set-key (kbd "C-c C-l") 'org-insert-link)
 
 (add-hook 'emacs-lisp-mode-hook (lambda ()
-				  (local-set-key (kbd "C-c C-c") #'eval-defun)
+				  (local-set-key (kbd "C-c C-c") #'my-eval-defun)
 				  (company-fuzzy-mode 1)))

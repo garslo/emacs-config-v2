@@ -101,3 +101,11 @@ cursor to the new line."
     (message (format "%s" (point)))
     (while (< (point) end)
       (dotted-to-hash))))
+
+(defun my-eval-defun ()
+  (interactive
+   (save-excursion
+     (mark-defun)
+     (eval-defun nil)
+     (pulse-momentary-highlight-region (region-beginning) (region-end))
+     (deactivate-mark))))
