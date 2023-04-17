@@ -31,6 +31,16 @@
 	 ("M-[" . puni-wrap-square)
 	 ("M-{" . puni-wrap-curly)))
 
+(use-package lsp-mode
+  :ensure t
+  :config
+  (setq lsp-enable-snippet nil)
+  (setq gc-cons-threshold (* 2 800000))
+  (setq read-process-output-max (* 1024 1024))
+  :init
+  (add-hook 'python-mode-hook #'lsp)
+  (add-hook 'go-mode-hook #'lsp))
+
 (use-package paredit
   :ensure t
   :config
@@ -41,7 +51,7 @@
 	       clojure-mode-hook
 	       scheme-mode-hook))
     (progn
-      ;(remove-hook m #'puni-mode)
+      (remove-hook m #'puni-mode)
       (add-hook m #'paredit-mode)))
   (bind-keys :map paredit-mode-map
              ("{"   . paredit-open-curly)
@@ -51,16 +61,6 @@
     (bind-keys :map paredit-mode-map
                ("M-[" . paredit-wrap-square)
                ("M-{" . paredit-wrap-curly))))
-
-(use-package lsp-mode
-  :ensure t
-  :config
-  (setq lsp-enable-snippet nil)
-  (setq gc-cons-threshold (* 2 800000))
-  (setq read-process-output-max (* 1024 1024))
-  :init
-  (add-hook 'python-mode-hook #'lsp)
-  (add-hook 'go-mode-hook #'lsp))
 
 (use-package company
   :ensure t
