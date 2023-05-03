@@ -39,7 +39,8 @@
   (setq read-process-output-max (* 1024 1024))
   :init
   (add-hook 'python-mode-hook #'lsp)
-  (add-hook 'go-mode-hook #'lsp))
+  (add-hook 'go-mode-hook #'lsp)
+  (add-hook 'c-mode-hook #'lsp))
 
 (use-package paredit
   :ensure t
@@ -188,3 +189,14 @@
 ;; 	company-fuzzy-prefix-on-top nil
 ;; 	company-fuzzy-trigger-symbols '("." "->" "<" "\"" "'" "@")
 ;;    ))
+
+(use-package puni
+  :ensure t
+  :config
+  (setq puni-confirm-when-delete-unbalanced-active-region nil)
+  (puni-global-mode 1))
+
+(use-package clang-format
+  :ensure t
+  :config
+  (add-hook 'c-mode-hook #'clang-format-save-hook-for-this-buffer))

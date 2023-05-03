@@ -143,3 +143,15 @@ cursor to the new line."
   (let ((rows (cl-loop for input in inputs
 		       collect (apply fn input))))
     (gs-org-table-build columns rows)))
+
+(defun clang-format-save-hook-for-this-buffer ()
+  "Create a buffer local save hook."
+  (add-hook 'before-save-hook
+            (lambda ()
+              (when (locate-dominating-file "." ".clang-format")
+                (clang-format-buffer))
+              ;; Continue to save.
+              nil)
+            nil
+            ;; Buffer local hook.
+            t))
