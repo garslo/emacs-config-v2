@@ -170,6 +170,9 @@
   :config
   (slime-setup '(slime-fancy slime-company)))
 
+(use-package sly
+  :ensure t)
+
 (use-package bui
   :ensure t)
 
