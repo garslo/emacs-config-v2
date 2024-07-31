@@ -171,7 +171,9 @@
   (slime-setup '(slime-fancy slime-company)))
 
 (use-package sly
-  :ensure t)
+  :ensure t
+  :init
+  (remove-hook 'lisp-mode-hook 'slime-lisp-mode-hook))
 
 (use-package bui
   :ensure t)
@@ -203,3 +205,6 @@
   :ensure t
   :config
   (add-hook 'c-mode-hook #'clang-format-save-hook-for-this-buffer))
+
+(use-package plz
+  :ensure t)
